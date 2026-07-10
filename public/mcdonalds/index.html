@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Big Mac Prices Across Canada</title>
+    <meta name="description" content="An interactive map of Big Mac prices across 1522 McDonald's Canada locations." />
+    <meta property="og:title" content="Big Mac Prices Across Canada" />
+    <meta property="og:description" content="An interactive map of Big Mac prices across 1522 McDonald's Canada locations." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIINfQKppf6qafHMfouVLnJo7sC+XSsGoD4="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="map-panel" aria-label="Big Mac price map">
+        <div id="map"></div>
+
+        <header class="top-strip">
+          <div>
+            <h1>How much does your Big Mac cost?</h1>
+            <p>Big Mac price across 1522 McDonald's Canada locations</p>
+          </div>
+          <button id="insightsToggle" class="icon-button" type="button" aria-expanded="false" aria-controls="insightsPanel" title="Show insights">
+            Info
+          </button>
+        </header>
+
+        <aside class="callouts" aria-label="Price extremes">
+          <button id="cheapestCallout" class="callout" type="button"></button>
+          <button id="expensiveCallout" class="callout" type="button"></button>
+        </aside>
+
+        <aside class="legend" aria-label="Map legend">
+          <h2>Price band</h2>
+          <div id="legendItems"></div>
+        </aside>
+
+        <div id="mapStatus" class="map-status" aria-live="polite">Loading map points...</div>
+
+        <aside id="insightsPanel" class="insights-panel" aria-label="Insights panel" hidden>
+          <div class="panel-header">
+            <h2>Insights</h2>
+            <button id="closeInsights" class="icon-button" type="button" title="Close insights">Close</button>
+          </div>
+          <div class="project-summary">
+            <p>This site is inspired by McCheapest and tracks the price of a Big Mac at McDonald's locations across Canada.</p>
+            <p>This is an independent project and is not affiliated with or endorsed by McDonald's.</p>
+            <p>Find me on <a href="https://x.com/zaeem__p" target="_blank" rel="noopener noreferrer">X/Twitter</a>.</p>
+          </div>
+          <dl class="stats-grid">
+            <div>
+              <dt>Stores</dt>
+              <dd id="statStores">-</dd>
+            </div>
+            <div>
+              <dt>Average</dt>
+              <dd id="statAverage">-</dd>
+            </div>
+            <div>
+              <dt>Range</dt>
+              <dd id="statRange">-</dd>
+            </div>
+            <div>
+              <dt>No Big Mac</dt>
+              <dd id="statMissing">-</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
