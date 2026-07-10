@@ -20,7 +20,7 @@ export default function ProjectsPage() {
               key={project.slug}
               className="border-b border-border pb-8 last:border-0"
             >
-              <Link href={`/projects/${project.slug}`} className="group block">
+              <Link href={project.url || `/projects/${project.slug}`} className="group block">
                 <p className="font-medium group-hover:underline group-hover:underline-offset-4">
                   {project.title}
                 </p>
@@ -30,16 +30,6 @@ export default function ProjectsPage() {
                   </p>
                 )}
               </Link>
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-block text-xs text-muted underline underline-offset-4 transition-colors hover:text-foreground"
-                >
-                  View project &rarr;
-                </a>
-              )}
             </li>
           ))}
         </ul>

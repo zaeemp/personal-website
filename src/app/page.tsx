@@ -14,12 +14,19 @@ export default function Home() {
       <h1 className="mt-8 font-serif text-4xl tracking-tight">
         Hi, I&apos;m Zaeem
       </h1>
-      <p className="mt-4 max-w-md leading-relaxed text-muted">
-        Fun guy. Working on fun things.
-      </p>
-      <p className="mt-6 text-sm text-muted">
-zaeemp[at]gmail[dot]com
-      </p>
+      <div className="mt-6 space-y-1 text-sm text-muted">
+        <p>zaeemp[at]gmail[dot]com</p>
+        <p>
+          <a
+            href="https://x.com/zaeem__p"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 transition-colors hover:text-foreground"
+          >
+            @zaeem__p
+          </a>
+        </p>
+      </div>
     </section>
   );
 }
