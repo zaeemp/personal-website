@@ -21,8 +21,9 @@ export default function ProjectsPage() {
               className="border-b border-border pb-8 last:border-0"
             >
               <Link href={project.url || `/projects/${project.slug}`} className="group block">
-                <p className="font-medium group-hover:underline group-hover:underline-offset-4">
-                  {project.title}
+                <p className="inline-flex items-center gap-1 font-medium underline underline-offset-4 transition-colors group-hover:text-foreground">
+                  <span>{project.title}</span>
+                  {project.url && <span aria-hidden="true">&rarr;</span>}
                 </p>
                 {project.description && (
                   <p className="mt-1 text-sm leading-relaxed text-muted">
