@@ -11,6 +11,7 @@ export default function McDonaldsPage() {
       src="/mcdonalds/index.html"
       title="Big Mac Prices Across Canada"
       className="fixed inset-0 z-50 h-screen w-screen border-0"
+      style={{ height: "100dvh" }}
     />
   );
 }

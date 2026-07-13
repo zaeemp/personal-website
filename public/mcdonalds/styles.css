@@ -10,6 +10,7 @@
   --panel: #ffffff;
   --strip: #fff0aa;
   --shadow: 0 8px 24px rgba(24, 32, 44, 0.18);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* Critical Leaflet layout rules. The CDN Leaflet CSS can fail inside embedded
@@ -99,7 +100,7 @@
 }
 
 .leaflet-bottom .leaflet-control {
-  margin-bottom: 18px;
+  margin-bottom: calc(18px + var(--safe-bottom));
 }
 
 .leaflet-top,
@@ -211,6 +212,12 @@ body,
   width: 100%;
   height: 100%;
   margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  height: 100dvh;
 }
 
 body {
@@ -343,7 +350,7 @@ button {
   position: absolute;
   z-index: 610;
   right: 18px;
-  bottom: 22px;
+  bottom: calc(22px + var(--safe-bottom));
   width: min(270px, calc(100vw - 36px));
   padding: 12px 13px;
   border-radius: 8px;
@@ -351,11 +358,19 @@ button {
   box-shadow: var(--shadow);
 }
 
+.legend-toggle {
+  display: none;
+}
+
+.legend-items {
+  display: block;
+}
+
 .map-status {
   position: absolute;
   z-index: 610;
   left: 58px;
-  bottom: 22px;
+  bottom: calc(22px + var(--safe-bottom));
   max-width: min(320px, calc(100vw - 36px));
   padding: 8px 11px;
   border-radius: 8px;
@@ -517,7 +532,7 @@ button {
   line-height: 1.35;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px), (max-height: 500px) {
   .top-strip {
     align-items: center;
     min-height: 82px;
@@ -538,7 +553,79 @@ button {
 
   .legend {
     right: 10px;
-    bottom: 16px;
+    bottom: calc(86px + var(--safe-bottom));
+    width: min(270px, calc(100vw - 20px));
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .legend h2 {
+    display: none;
+  }
+
+  .legend-toggle {
+    width: 100%;
+    min-height: 44px;
+    display: grid;
+    grid-template-columns: auto 1fr 14px;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 12px;
+    border: 0;
+    background: transparent;
+    color: #263247;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .legend-swatches {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .legend-swatches i {
+    width: 11px;
+    height: 11px;
+    margin-left: -2px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+  }
+
+  .legend-chevron {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #657083;
+    border-bottom: 2px solid #657083;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 160ms ease;
+  }
+
+  .legend-items {
+    display: none;
+    padding: 0 12px 10px;
+  }
+
+  .legend.is-expanded .legend-items {
+    display: block;
+  }
+
+  .legend.is-expanded .legend-chevron {
+    transform: rotate(225deg) translate(-2px, -1px);
+  }
+
+  .map-status {
+    left: 52px;
+    bottom: calc(12px + var(--safe-bottom));
+  }
+
+  .leaflet-left .leaflet-control {
+    margin-left: 10px;
+  }
+
+  .leaflet-bottom .leaflet-control {
+    margin-bottom: calc(12px + var(--safe-bottom));
   }
 
   .insights-panel {
@@ -546,5 +633,11 @@ button {
     right: 10px;
     max-height: calc(100vh - 108px);
     overflow: auto;
+  }
+}
+
+@media (min-width: 701px) and (max-height: 500px) {
+  .legend {
+    bottom: calc(12px + var(--safe-bottom));
   }
 }

@@ -29,6 +29,8 @@ L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
 const markerByStore = new Map();
 const visibleRowsByStore = new Map();
 
+wireLegend();
+wireViewportResize();
 loadMap();
 
 async function loadMap() {
@@ -193,6 +195,35 @@ function wireInsights() {
     panel.hidden = true;
     openButton.setAttribute("aria-expanded", "false");
   });
+}
+
+function wireLegend() {
+  const legend = document.getElementById("priceLegend");
+  const toggle = document.getElementById("legendToggle");
+  const mobileQuery = window.matchMedia("(max-width: 700px), (max-height: 500px)");
+
+  const setExpanded = (expanded) => {
+    legend.classList.toggle("is-expanded", expanded);
+    toggle.setAttribute("aria-expanded", String(expanded));
+  };
+
+  setExpanded(!mobileQuery.matches);
+  toggle.addEventListener("click", () => {
+    setExpanded(!legend.classList.contains("is-expanded"));
+  });
+  mobileQuery.addEventListener("change", (event) => setExpanded(!event.matches));
+}
+
+function wireViewportResize() {
+  let resizeFrame;
+  const resizeMap = () => {
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(() => map.invalidateSize());
+  };
+
+  window.addEventListener("resize", resizeMap);
+  window.addEventListener("orientationchange", resizeMap);
+  window.visualViewport?.addEventListener("resize", resizeMap);
 }
 
 function focusStore(storeId) {

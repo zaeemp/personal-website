@@ -37,9 +37,20 @@
           <button id="expensiveCallout" class="callout" type="button"></button>
         </aside>
 
-        <aside class="legend" aria-label="Map legend">
+        <aside id="priceLegend" class="legend" aria-label="Map legend">
           <h2>Price band</h2>
-          <div id="legendItems"></div>
+          <button id="legendToggle" class="legend-toggle" type="button" aria-expanded="false" aria-controls="legendItems">
+            <span>Price bands</span>
+            <span class="legend-swatches" aria-hidden="true">
+              <i style="background: var(--green)"></i>
+              <i style="background: var(--light-green)"></i>
+              <i style="background: var(--yellow)"></i>
+              <i style="background: var(--orange)"></i>
+              <i style="background: var(--red)"></i>
+            </span>
+            <span class="legend-chevron" aria-hidden="true"></span>
+          </button>
+          <div id="legendItems" class="legend-items"></div>
         </aside>
 
         <div id="mapStatus" class="map-status" aria-live="polite">Loading map points...</div>
