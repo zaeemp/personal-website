@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import { getAllPosts, getPostBySlug } from "@/lib/thoughts";
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -14,7 +14,7 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
   });
 }
 
-export default async function BlogPost({
+export default async function ThoughtPost({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -36,10 +36,10 @@ export default async function BlogPost({
       </div>
       <div className="mt-16">
         <Link
-          href="/blog"
+          href="/thoughts"
           className="text-sm text-muted transition-colors hover:text-foreground"
         >
-          &larr; Back to blog
+          &larr; Back to thoughts
         </Link>
       </div>
     </article>

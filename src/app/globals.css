@@ -40,7 +40,7 @@ body {
   color: #fafafa;
 }
 
-/* Prose overrides for blog posts */
+/* Prose overrides for thought posts */
 .prose {
   --tw-prose-body: var(--foreground);
   --tw-prose-headings: var(--foreground);

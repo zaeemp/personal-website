@@ -11,10 +11,10 @@ export default function Header() {
       </Link>
       <nav className="flex gap-6">
         <Link
-          href="/blog"
+          href="/thoughts"
           className="text-sm text-muted transition-colors hover:text-foreground"
         >
-          Blog
+          Thoughts
         </Link>
         <Link
           href="/projects"
