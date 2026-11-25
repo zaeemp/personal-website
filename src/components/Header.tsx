@@ -22,6 +22,12 @@ export default function Header() {
         >
           Projects
         </Link>
+        <Link
+          href="/data-visualizations"
+          className="text-sm text-muted transition-colors hover:text-foreground"
+        >
+          Data Viz
+        </Link>
       </nav>
     </header>
   );
