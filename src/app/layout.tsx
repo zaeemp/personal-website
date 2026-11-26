@@ -23,6 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} antialiased`}>
+        <div className="border-b border-border bg-foreground px-6 py-2 text-center text-xs text-background">
+          Website under construction. Content will be recovered soon.
+        </div>
         <div className="mx-auto max-w-2xl px-6">
           <Header />
           <main className="min-h-[calc(100vh-10rem)]">{children}</main>
