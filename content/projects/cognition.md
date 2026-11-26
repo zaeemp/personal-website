@@ -1,5 +1,5 @@
 ---
 title: "Cognition"
-description: "A daily card puzzle. Four playing cards, + − × ÷, make 24. A new Easy, Medium, Hard and Expert hand every day, with difficulty ranked by how long real players take to crack each hand."
+description: "A daily card puzzle: make 24 from four playing cards using + − × ÷. Four new hands every day, from Easy to Expert."
 url: "/cognition"
 ---
