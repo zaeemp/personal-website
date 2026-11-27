@@ -103,7 +103,7 @@ export default function ResumePage() {
   return (
     <section className="py-16">
       <div className="flex items-end justify-between gap-6">
-        <h1 className="font-serif text-3xl tracking-tight">Resume</h1>
+        <h1 className="font-serif text-3xl tracking-tight">Zaeem Patel</h1>
         <a
           href={PDF}
           download="Zaeem Patel Resume.pdf"
